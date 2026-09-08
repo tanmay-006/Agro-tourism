@@ -3,70 +3,45 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import SectionHeading from "@/components/SectionHeading";
 import ScrollReveal from "@/components/ScrollReveal";
-import ScrollFloat from "@/components/ScrollFloat";
-import { blogPosts } from "@/data/blogPosts";
+import SectionHeading from "@/components/SectionHeading";
+import { blogPosts, type BlogCategory } from "@/data/blogPosts";
 
-const tabs = ["All", "Industry News", "Recipes", "Sustainability", "Global Logistics"] as const;
+const tabs: Array<"All" | BlogCategory> = ["All", "Project Notes", "Farm Stories", "Sustainability", "Technology"];
 
 export default function BlogPage() {
   const [tab, setTab] = useState<(typeof tabs)[number]>("All");
-  const [subscribeStatus, setSubscribeStatus] = useState<string>("Subscribe");
-
+  const [subscribeStatus, setSubscribeStatus] = useState("Join the demo list");
   const featured = blogPosts.find((post) => post.featured) ?? blogPosts[0];
   const cards = useMemo(
-    () => blogPosts.filter((post) => !post.featured && (tab === "All" || post.category === tab)),
-    [tab],
+    () => blogPosts.filter((post) => post.slug !== featured.slug && (tab === "All" || post.category === tab)),
+    [featured.slug, tab],
   );
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubscribeStatus("Thank You");
-    const form = e.target as HTMLFormElement;
-    form.reset();
-    setTimeout(() => {
-      setSubscribeStatus("Subscribe");
-    }, 3000);
-  };
+  function handleSubscribe(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubscribeStatus("Thanks — demo signup saved");
+    event.currentTarget.reset();
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-      {/* Page Header */}
-      <header className="text-center mb-16">
-        <div className="inline-block mb-4">
-          <span className="text-xs uppercase tracking-widest text-[#2c3f16] font-semibold">
-            Harvest Excellence & Wisdom
-          </span>
-          <div className="h-[1px] w-12 bg-[#2c3f16]/40 mx-auto mt-2" />
-        </div>
-        <ScrollFloat
-          animationDuration={0.8}
-          ease="back.inOut(2)"
-          scrollStart="center bottom+=50%"
-          scrollEnd="bottom bottom-=40%"
-          stagger={0.03}
-          containerClassName="text-center block"
-          textClassName="font-serif-display text-5xl md:text-6xl text-[#2c3f16]"
-        >
-          Heritage Insights
-        </ScrollFloat>
-        <p className="mt-4 font-serif-display text-lg text-[#48624a] italic max-w-2xl mx-auto leading-relaxed">
-          A curated journey from the sacred soil of our estates to the soul of your culinary experiences. Exploring the legacy of the perfect grain.
-        </p>
-      </header>
+      <SectionHeading
+        title="Stories from the Root & Rise project"
+        subtitle="Project notes, farm stories, sustainability ideas, and technology choices behind this agro-tourism frontend demo."
+        centered
+      />
+      <p className="mx-auto mt-6 max-w-xl text-center text-xs font-bold uppercase tracking-[0.2em] text-[#a67c1c]">Mock editorial space · written for the college project</p>
 
-      {/* Categories Filter Tabs */}
-      <section className="mb-16 border-b border-[#e2dbc9]/60 pb-6">
-        <div className="flex flex-wrap justify-center gap-8">
+      <section className="mb-14 mt-12 border-b border-[#e2dbc9]/60 pb-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {tabs.map((item) => (
             <button
               key={item}
+              type="button"
               onClick={() => setTab(item)}
-              className={`text-xs uppercase tracking-wider font-semibold transition-all duration-300 pb-2 border-b-2 cursor-pointer ${
-                tab === item
-                  ? "text-[#2c3f16] border-[#2c3f16]"
-                  : "text-[#48624a]/75 border-transparent hover:text-[#2c3f16]"
+              className={`border-b-2 pb-2 text-xs font-semibold uppercase tracking-wider transition ${
+                tab === item ? "border-[#2c3f16] text-[#2c3f16]" : "border-transparent text-[#48624a]/75 hover:text-[#2c3f16]"
               }`}
             >
               {item}
@@ -75,117 +50,56 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Featured Article */}
-      <ScrollReveal direction="up" delay={0}>
-        <section className="mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#fdfcfb] p-6 rounded-2xl border border-[#e2dbc9]/60 shadow-md group">
-            <div className="lg:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative rounded-xl bg-[#f7f3ec]">
-              <Image
-                src={featured.image}
-                alt={featured.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                priority
-              />
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-sm border border-[#e2dbc9]/40 shadow-sm z-10">
-                <span className="text-[10px] tracking-[0.2em] font-semibold text-[#2c3f16]">FEATURED ARTICLE</span>
-              </div>
+      {tab === "All" && (
+        <ScrollReveal direction="up">
+          <section className="mb-16 grid overflow-hidden rounded-2xl border border-[#e2dbc9]/60 bg-[#fdfcfb] shadow-md lg:grid-cols-[1.3fr_1fr]">
+            <div className="relative min-h-[300px] bg-[#f7f3ec]">
+              <Image src={featured.image} alt={featured.title} fill className="object-cover" priority />
+              <span className="absolute left-6 top-6 rounded-sm bg-white/90 px-4 py-2 text-[10px] font-semibold tracking-[0.2em] text-[#2c3f16]">FEATURED PROJECT NOTE</span>
             </div>
-
-            <div className="lg:col-span-5 p-4 md:p-8">
-              <span className="text-[10px] tracking-wider uppercase font-semibold text-[#2c3f16] mb-4 block">
-                {featured.displayCategory}
-              </span>
-              <h2 className="font-serif-display text-3xl md:text-4xl text-[#2c3f16] mb-6 leading-tight group-hover:text-[#2c3f16] transition-colors duration-300">
-                {featured.title}
-              </h2>
-              <p className="text-[#48624a] text-sm leading-relaxed font-light mb-8 line-clamp-4">
-                {featured.excerpt}
-              </p>
-              <Link
-                href={`/blog/${featured.slug}`}
-                className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#2c3f16] border-b border-[#2c3f16] pb-1 hover:text-[#2c3f16] hover:border-[#2c3f16] transition duration-300"
-              >
-                Read More <span className="ml-2 font-serif text-sm">→</span>
+            <div className="flex flex-col justify-center p-8 md:p-12">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#a67c1c]">{featured.displayCategory}</span>
+              <h2 className="mt-4 font-serif-display text-3xl leading-tight text-[#2c3f16] md:text-4xl">{featured.title}</h2>
+              <p className="mt-5 leading-7 text-[#48624a]">{featured.excerpt}</p>
+              <Link href={`/blog/${featured.slug}`} className="mt-7 inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#2c3f16]">
+                Read project note <span className="ml-2 text-sm">→</span>
               </Link>
             </div>
-          </div>
-        </section>
-      </ScrollReveal>
+          </section>
+        </ScrollReveal>
+      )}
 
-      {/* Blog Grid */}
-      <section className="mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((post, i) => (
-            <ScrollReveal key={post.slug} direction="up" delay={i * 0.1}>
-              <article className="group flex flex-col h-full bg-white border border-[#e2dbc9]/60 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="h-64 overflow-hidden relative bg-[#f7f3ec]">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-8 flex-grow flex flex-col">
-                  <span className="text-[10px] tracking-wider uppercase font-bold text-[#2c3f16] mb-3 block">
-                    {post.displayCategory}
-                  </span>
-                  <h3 className="font-serif-display text-2xl text-[#2c3f16] mb-4 leading-snug line-clamp-2 min-h-[3.2em] group-hover:text-[#2c3f16] transition-colors duration-300">
-                    {post.title}
-                  </h3>
-                  <p className="text-[#48624a] text-sm leading-relaxed mb-6 font-light line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-auto pt-4 border-t border-[#2c3f16]/10 flex items-center">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#2c3f16] hover:text-[#2c3f16] transition duration-300"
-                    >
-                      Read Article <span className="ml-1 text-sm">→</span>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
-        </div>
+      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {cards.map((post, index) => (
+          <ScrollReveal key={post.slug} direction="up" delay={index * 0.08}>
+            <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#e2dbc9]/60 bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="relative h-56 overflow-hidden bg-[#f7f3ec]">
+                <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div className="flex flex-1 flex-col p-7">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#a67c1c]">{post.displayCategory}</span>
+                <h2 className="mt-3 font-serif-display text-2xl leading-snug text-[#2c3f16]">{post.title}</h2>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-[#48624a]">{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className="mt-6 border-t border-[#2c3f16]/10 pt-4 text-xs font-bold uppercase tracking-wider text-[#2c3f16]">
+                  Read article <span className="ml-1 text-sm">→</span>
+                </Link>
+              </div>
+            </article>
+          </ScrollReveal>
+        ))}
       </section>
 
-      {/* Newsletter Section */}
-      <section className="rounded-3xl bg-[#2c3f16] p-12 text-[#f7f3ec] text-center border border-[#2c3f16] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <svg height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" width="100%">
-            <path d="M0 100 C 20 0 50 0 100 100" fill="transparent" stroke="white" strokeWidth={0.5}></path>
-            <path d="M0 80 C 30 20 60 20 100 80" fill="transparent" stroke="white" strokeWidth={0.5}></path>
-          </svg>
-        </div>
-        
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="font-serif-display text-3xl md:text-4xl text-[#fcf5e5]">Join Our Heritage Circle</h2>
-          <p className="mt-3 text-[#98b5a3] text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-            Receive quarterly insights into global agriculture, exclusive harvest reports, and artisanal recipes directly to your inbox.
-          </p>
-          <form className="mt-8 max-w-lg mx-auto flex flex-col sm:flex-row gap-4" onSubmit={handleSubscribe}>
-            <label className="sr-only" htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              required
-              placeholder="Enter your email address"
-              className="flex-grow bg-white/10 border border-white/20 text-[#fcf5e5] placeholder:text-[#fcf5e5]/50 px-6 py-4 rounded-full focus:ring-2 focus:ring-[#2c3f16] focus:border-transparent outline-none transition-all duration-300"
-            />
-            <button
-              type="submit"
-              className="bg-[#2c3f16] text-[#fcf5e5] px-8 py-4 font-semibold hover:bg-[#1d2a0f] hover:shadow-lg transition duration-300 rounded-full whitespace-nowrap min-w-[140px]"
-            >
-              {subscribeStatus}
-            </button>
-          </form>
-          <p className="mt-6 text-[10px] uppercase tracking-widest text-[#98b5a3]/50">
-            No spam. Only the finest grains of wisdom.
-          </p>
-        </div>
+      {cards.length === 0 && <p className="py-12 text-center text-[#48624a]">No stories in this category yet.</p>}
+
+      <section className="mt-20 rounded-3xl bg-[#20351b] p-10 text-center text-[#f7f3ec] md:p-12">
+        <h2 className="font-serif-display text-3xl md:text-4xl">Follow the build</h2>
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-[#d8d2c4]">A lightweight demo signup for future notes on rural technology, sustainable travel, and the people behind local food.</p>
+        <form onSubmit={handleSubscribe} className="mx-auto mt-8 flex max-w-lg flex-col gap-3 sm:flex-row">
+          <label className="sr-only" htmlFor="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="Enter your email address" className="min-w-0 flex-1 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[#f7f3ec] outline-none placeholder:text-[#d8d2c4]/60 focus:ring-2 focus:ring-[#e7bd67]" />
+          <button type="submit" className="rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">{subscribeStatus}</button>
+        </form>
+        <p className="mt-5 text-[10px] uppercase tracking-widest text-[#d8d2c4]/60">Demo only · no marketing email is sent</p>
       </section>
     </div>
   );

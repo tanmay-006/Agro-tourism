@@ -1,146 +1,119 @@
 "use client";
 
-import { useState } from "react";
-import { BadgeCheck, Globe2, Mail, Phone, MapPin } from "lucide-react";
-import InquiryForm from "@/components/InquiryForm";
+import { FormEvent, useState } from "react";
+import { CalendarDays, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 
-const offices = {
-  pune: {
-    name: "Registered Office / Pune HQ",
-    address: "MCCIA Trade Tower, ICC Complex, 403, Senapati Bapat Road, Pune - 411 016, INDIA",
-    phone: "+91 9833613591 (India)",
-    email: "hello@rootandrise.co",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.997988358482!2d73.82626607621183!3d18.528956987411658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf7906d27453%3A0xe54d9894e33cf374!2sMCCIA%20Trade%20Tower!5e0!3m2!1sen!2sin!4v1719999999999!5m2!1sen!2sin",
+const farmHubs = {
+  alibaug: {
+    name: "Alibaug demo farm",
+    address: "Alibaug, Maharashtra · coastal fields and kitchen gardens",
+    phone: "+91 90000 00000",
+    email: "hello@rootandrise.demo",
+    mapSrc: "https://www.google.com/maps?q=Alibaug%2C%20Maharashtra&output=embed",
   },
-  mumbai: {
-    name: "Mumbai Office",
-    address: "Suparshwa Eterna, 2001 C Wing, Parsi Panchayat Road, Andheri East, Mumbai - 400 069, INDIA",
-    phone: "+91 9833613591 (India)",
-    email: "hello@rootandrise.co",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9126359003504!2d72.85309327622359!3d19.111451187079213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83f1207e4d5%3A0x7d6325983eeae011!2sParsi%20Panchayat%20Rd%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1719999999999!5m2!1sen!2sin",
+  nashik: {
+    name: "Nashik demo farm",
+    address: "Nashik, Maharashtra · orchard and seasonal produce",
+    phone: "+91 90000 00001",
+    email: "hello@rootandrise.demo",
+    mapSrc: "https://www.google.com/maps?q=Nashik%2C%20Maharashtra&output=embed",
   },
-  nagpur: {
-    name: "Nagpur Office",
-    address: "NB Tower, Plot No. 6/7, Jai Hind Society, Shyam Nagar, Somalwada, Nagpur – 440 037, INDIA",
-    phone: "+91 9833613591 (India)",
-    email: "hello@rootandrise.co",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.5694200787125!2d79.06649777626955!3d21.089851687508627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4be74c0000001%3A0x1d5f2a1ab74cc042!2sSomalwada%2C%20Nagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1719999999999!5m2!1sen!2sin",
-  },
-  dubai: {
-    name: "Dubai Office",
-    address: "602 Al Khaleej Center, Al Mankhool Road, Bur Dubai - Dubai, UAE",
-    phone: "+971 585895561 (UAE)",
-    email: "hello@rootandrise.co",
-    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.204555811776!2d55.291771176378125!3d25.263728688464673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4339178bf73d%3A0x959737ae0486c4ad!2sAl%20Khaleej%20Centre!5e0!3m2!1sen!2sin!4v1719999999999!5m2!1sen!2sin",
+  kolhapur: {
+    name: "Kolhapur demo farm",
+    address: "Kolhapur, Maharashtra · paddies and nature trails",
+    phone: "+91 90000 00002",
+    email: "hello@rootandrise.demo",
+    mapSrc: "https://www.google.com/maps?q=Kolhapur%2C%20Maharashtra&output=embed",
   },
 };
 
+const experiences = ["Any experience", "Farm stay", "Harvest & learn", "Kitchen to table", "Seed library", "Slow living workshop"];
+
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState<keyof typeof offices>('pune');
-  const activeOffice = offices[activeTab];
+  const [activeTab, setActiveTab] = useState<keyof typeof farmHubs>("alibaug");
+  const [submitted, setSubmitted] = useState(false);
+  const activeHub = farmHubs[activeTab];
+
+  function submitBooking(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-      <SectionHeading title="A Legacy of Global Presence" subtitle="Our concierge export desk supports buyers across key markets." />
+      <SectionHeading
+        title="Plan a farm visit"
+        subtitle="Use this booking/contact demo to imagine how Root & Rise could connect guests with local hosts. No payment or real reservation is processed."
+      />
+
+      <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#d7d0c0] bg-white/60 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#806018]">
+        <span className="h-2 w-2 rounded-full bg-[#a67c1c]" /> Demo enquiry flow
+      </div>
 
       <section className="mt-10 grid gap-6 lg:grid-cols-2">
-        <article className="rounded-2xl border border-[#e2dbc9] bg-white p-6 flex flex-col justify-between">
+        <article className="rounded-2xl border border-[#e2dbc9] bg-white p-6">
           <div>
-            <h2 className="font-serif-display text-3xl text-[#2c3f16] font-bold">Global Presence</h2>
-            
-            {/* Active office specifications Card */}
-            <div className="mt-4 space-y-3.5 bg-[#2c3f16] p-5 rounded-2xl transition-all duration-300 shadow-md">
-              <h3 className="font-serif-display text-xl text-[#fcf5e5] font-semibold">{activeOffice.name}</h3>
-              
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#a67c1c] shrink-0 mt-0.5" />
-                <p className="text-[#edf4e8]/90 text-sm leading-relaxed font-light">{activeOffice.address}</p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-[#a67c1c] shrink-0" />
-                <p className="text-[#edf4e8]/90 text-sm font-light">
-                  <a href={`tel:${activeOffice.phone.split(" ")[0]}`} className="hover:text-white transition-all">
-                    {activeOffice.phone}
-                  </a>
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-[#a67c1c] shrink-0" />
-                <p className="text-[#edf4e8]/90 text-sm font-light">
-                  <a 
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${activeOffice.email}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="hover:text-white transition-all"
-                  >
-                    {activeOffice.email}
-                  </a>
-                </p>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#a67c1c]">Choose a region</p>
+            <h2 className="mt-2 font-serif-display text-3xl text-[#2c3f16]">Meet the demo farms</h2>
+            <div className="mt-5 rounded-2xl bg-[#20351b] p-5 text-[#f7f3ec]">
+              <h3 className="font-serif-display text-xl">{activeHub.name}</h3>
+              <div className="mt-4 space-y-3 text-sm text-[#d8d2c4]">
+                <p className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#e7bd67]" />{activeHub.address}</p>
+                <p className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0 text-[#e7bd67]" /><a href={`tel:${activeHub.phone.replace(/\s/g, "")}`}>{activeHub.phone}</a></p>
+                <p className="flex items-center gap-3"><Mail className="h-4 w-4 shrink-0 text-[#e7bd67]" /><a href={`mailto:${activeHub.email}`}>{activeHub.email}</a></p>
               </div>
             </div>
-
-            {/* Selector tabs for 4 offices */}
-            <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {(Object.keys(offices) as Array<keyof typeof offices>).map((key) => (
+            <div className="mt-5 grid grid-cols-3 gap-2">
+              {(Object.keys(farmHubs) as Array<keyof typeof farmHubs>).map((key) => (
                 <button
                   key={key}
-                  onClick={() => setActiveTab(key)}
                   type="button"
-                  className={`py-2.5 px-2 rounded-xl border text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
-                    activeTab === key
-                      ? 'bg-[#2c3f16] text-[#fcf5e5] border-[#2c3f16] shadow-md'
-                      : 'bg-white text-[#2c3f16] border-[#e2dbc9] hover:bg-[#faf8f5]'
-                  }`}
+                  onClick={() => setActiveTab(key)}
+                  className={`rounded-xl border px-2 py-2.5 text-[11px] font-semibold uppercase tracking-wider transition ${activeTab === key ? "border-[#20351b] bg-[#20351b] text-[#f7f3ec]" : "border-[#e2dbc9] text-[#2c3f16] hover:bg-[#faf8f5]"}`}
                 >
                   {key}
                 </button>
               ))}
             </div>
-
-            {/* Map Preview iframe */}
-            <div className="mt-4 relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[#e2dbc9] bg-[#faf8f5]">
-              <iframe
-                src={activeOffice.mapSrc}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden rounded-xl border border-[#e2dbc9] bg-[#faf8f5]">
+              <iframe src={activeHub.mapSrc} title={`${activeHub.name} map`} width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
-          </div>
-
-          <div className="mt-6 border-t border-[#e2dbc9]/60 pt-4">
-            <h3 className="font-semibold text-sm">Operational Hubs</h3>
-            <ul className="mt-2 grid gap-1 text-sm text-[#48624a] sm:grid-cols-4">
-              {[
-                "Mumbai",
-                "Pune",
-                "Nagpur",
-                "Dubai",
-              ].map((hub) => (
-                <li key={hub}>• {hub}</li>
-              ))}
-            </ul>
           </div>
         </article>
 
         <article className="rounded-2xl border border-[#e2dbc9] bg-white p-6">
-          <h2 className="font-serif-display text-3xl">Concierge Inquiry</h2>
-          <p className="mt-2 text-[#48624a]">Share your procurement needs and our team will revert promptly.</p>
-          <div className="mt-4">
-            <InquiryForm type="full" />
-          </div>
+          {submitted ? (
+            <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
+              <CheckCircle2 className="h-12 w-12 text-[#397c62]" />
+              <h2 className="mt-5 font-serif-display text-3xl text-[#2c3f16]">Demo request captured</h2>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-[#48624a]">Thanks for trying the flow. In a production version, a host would follow up to confirm availability and accessibility.</p>
+              <button type="button" onClick={() => setSubmitted(false)} className="mt-7 rounded-full border border-[#2c3f16] px-5 py-2 text-sm font-semibold text-[#2c3f16]">Send another request</button>
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center gap-3"><CalendarDays className="h-6 w-6 text-[#a67c1c]" /><h2 className="font-serif-display text-3xl text-[#2c3f16]">Booking enquiry</h2></div>
+              <p className="mt-2 text-sm text-[#48624a]">Tell us what kind of farm day you are imagining.</p>
+              <form onSubmit={submitBooking} className="mt-6 space-y-3">
+                <label className="block text-sm font-medium text-[#2c3f16]">Name<input required name="name" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
+                <label className="block text-sm font-medium text-[#2c3f16]">Email<input required type="email" name="email" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-sm font-medium text-[#2c3f16]">Preferred date<input required type="date" name="date" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
+                  <label className="block text-sm font-medium text-[#2c3f16]">Guests<select name="guests" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2"><option>2 guests</option><option>4 guests</option><option>6 guests</option></select></label>
+                </div>
+                <label className="block text-sm font-medium text-[#2c3f16]">Experience<select name="experience" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2">{experiences.map((experience) => <option key={experience}>{experience}</option>)}</select></label>
+                <label className="block text-sm font-medium text-[#2c3f16]">Note for the host<textarea name="message" rows={3} placeholder="Accessibility needs, interests, or questions" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
+                <button type="submit" className="w-full rounded-full bg-[#20351b] px-4 py-3 font-semibold text-[#f7f3ec] transition hover:bg-[#34552b]">Submit demo enquiry</button>
+              </form>
+            </>
+          )}
         </article>
       </section>
 
-      <section className="mt-8 grid gap-3 rounded-xl bg-[#f1eadf] p-5 text-[#2c3f16] sm:grid-cols-2">
-        <div className="flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-[#2c3f16]" /> Certified Export Partner</div>
-        <div className="flex items-center gap-2"><Globe2 className="h-5 w-5 text-[#2c3f16]" /> Shipping to 120+ Countries</div>
+      <section className="mt-8 grid gap-3 rounded-xl bg-[#eef0e5] p-5 text-sm text-[#2c3f16] sm:grid-cols-3">
+        <div className="flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-[#397c62]" /> Host-led experiences</div>
+        <div className="flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-[#397c62]" /> Local produce discovery</div>
+        <div className="flex items-center gap-2"><CheckCircle2 className="h-5 w-5 text-[#397c62]" /> No live payment in demo</div>
       </section>
     </div>
   );
