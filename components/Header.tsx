@@ -8,8 +8,8 @@ import { useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
-  { href: "/about", label: "About Us" },
+  { href: "/#experiences", label: "Experiences" },
+  { href: "/about", label: "Our Story" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -27,13 +27,13 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2 font-serif-display text-2xl text-[#2c3f16]">
             <Image
               src="/images/logo.png"
-              alt="NeemSai Global Logo"
+              alt="Root & Rise logo"
               width={96}
               height={96}
               className="h-24 w-24 object-contain transition-all duration-300 hover:scale-105"
             />
             <span className="font-serif-display text-lg font-bold tracking-tight text-[#2c3f16] max-sm:hidden">
-              NeemSai Global
+              Root & Rise
             </span>
           </Link>
         </div>

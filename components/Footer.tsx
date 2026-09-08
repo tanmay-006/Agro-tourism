@@ -4,16 +4,18 @@ import { MessageCircle, Send, Share2 } from "lucide-react";
 import LogisticsFooterDivider from "./LogisticsFooterDivider";
 
 const cols = {
-  Company: ["About Us", "Sustainability", "Global Logistics"],
-  Products: ["Basmati Varieties", "Non-Basmati"],
-  Support: ["Contact", "Privacy Policy", "Terms"],
+  Discover: ["Our Story", "Experiences", "Journal"],
+  Visit: ["Plan a stay", "Seasonal guide", "Getting here"],
+  Connect: ["Contact", "Instagram", "Newsletter"],
 };
 
 export default function Footer() {
   const getHref = (label: string) => {
     if (label === "Contact") return "/contact";
-    if (label === "About Us") return "/about";
-    if (label === "Basmati Varieties" || label === "Non-Basmati") return "/products";
+    if (label === "Our Story") return "/about";
+    if (label === "Experiences") return "/#experiences";
+    if (label === "Journal") return "/blog";
+    if (label === "Plan a stay" || label === "Contact") return "/contact";
     return "#";
   };
 
@@ -35,15 +37,15 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
-              alt="NeemSai Global Logo"
+              alt="Root & Rise logo"
               width={40}
               height={40}
               className="h-10 w-10 object-contain brightness-0 invert transition-transform hover:scale-105 duration-300"
             />
-            <h3 className="font-serif-display text-3xl font-bold tracking-tight">NeemSai Global</h3>
+            <h3 className="font-serif-display text-3xl font-bold tracking-tight">Root & Rise</h3>
           </div>
           <p className="mt-3 text-base text-[#d8d2c4] max-w-md leading-relaxed">
-            Premium basmati and non-basmati export specialists delivering heritage quality with global precision.
+            Rural stays and farm experiences that bring people closer to the land, food, and one another.
           </p>
           <div className="mt-6 flex gap-3">
             {[MessageCircle, Send, Share2].map((Icon, i) => (
@@ -77,15 +79,15 @@ export default function Footer() {
 
         <address className="not-italic text-base text-[#d8d2c4]">
           <h4 className="font-semibold text-[#e7e2d8] uppercase tracking-wider text-sm mb-4">Contact Us</h4>
-          <p className="mt-3">Email: <a href="mailto:neemsaiglobal@gmail.com" className="hover:text-[#a67c1c] transition-colors">neemsaiglobal@gmail.com</a></p>
-          <p className="mt-1">WhatsApp: <a href="https://wa.me/919833613591" target="_blank" rel="noopener noreferrer" className="hover:text-[#a67c1c] transition-colors">+91 9833613591</a></p>
-          <h4 className="font-semibold text-[#e7e2d8] mt-6 uppercase tracking-wider text-sm">Global Offices</h4>
-          <p className="mt-2 text-sm text-[#d8d2c4]/80">Pune - India & Dubai</p>
+          <p className="mt-3">Email: <a href="mailto:hello@rootandrise.co" className="hover:text-[#a67c1c] transition-colors">hello@rootandrise.co</a></p>
+          <p className="mt-1">Phone: <a href="tel:+919833613591" className="hover:text-[#a67c1c] transition-colors">+91 98336 13591</a></p>
+          <h4 className="font-semibold text-[#e7e2d8] mt-6 uppercase tracking-wider text-sm">Based in</h4>
+          <p className="mt-2 text-sm text-[#d8d2c4]/80">Maharashtra, India</p>
         </address>
       </div>
 
       <div className="relative z-10 border-t border-white/10 px-6 py-5 text-center text-sm text-[#c8c1b5] md:px-10">
-        © {new Date().getFullYear()} NeemSai Global. All rights reserved.
+        © {new Date().getFullYear()} Root & Rise. All rights reserved.
       </div>
     </footer>
   );

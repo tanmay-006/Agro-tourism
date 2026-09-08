@@ -13,8 +13,8 @@ const bodoniModa = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "NeemSai Global",
-  description: "Premium basmati & non-basmati rice export company",
+  title: "Root & Rise | Agro-tourism experiences",
+  description: "Farm stays, seasonal experiences, and rural travel that gives back.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
