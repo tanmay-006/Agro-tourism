@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --brand-green: #2c3f16;
+  --font-serif: var(--font-bodoni), "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: Inter, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, select, input, textarea, [role="button"], .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up-delay {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  30% {
+    transform: translateY(35vh) rotate(120deg) translateX(-20px);
+  }
+  65% {
+    transform: translateY(70vh) rotate(240deg) translateX(30px);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(115vh) rotate(360deg) translateX(-15px);
+    opacity: 0;
+  }
+}
+
+.animate-float-particle {
+  animation: floatParticle 20s linear infinite;
+}
+
