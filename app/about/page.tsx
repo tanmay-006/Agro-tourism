@@ -92,7 +92,7 @@ export default function AboutPage() {
             Harvesting Excellence Across Generations
           </ScrollFloat>
           <p className="mt-4 font-serif-display text-lg text-[#48624a] italic max-w-2xl mx-auto leading-relaxed">
-            From the sun-drenched fields of the Indo-Gangetic plains to the global dining tables, NeemSai Global represents a legacy of artisanal rice cultivation and uncompromising quality.
+            From the sun-drenched fields of the Indo-Gangetic plains to the global dining tables, Root & Rise represents a legacy of artisanal rice cultivation and uncompromising quality.
           </p>
         </div>
 
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <h2 className="font-serif-display text-4xl text-[#2c3f16]">Our Legacy: Roots in Tradition</h2>
             <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#2c3f16] to-transparent mb-6" />
             <p className="text-[#48624a] text-sm md:text-base leading-relaxed font-light">
-              For over four decades, the foundations of NeemSai Global have been built upon the wisdom of traditional farming passed down through generations. What began as a local family initiative has flourished into a global hallmark of agricultural mastery.
+              For over four decades, the foundations of Root & Rise have been built upon the wisdom of traditional farming passed down through generations. What began as a local family initiative has flourished into a global hallmark of agricultural mastery.
             </p>
             <p className="text-[#48624a] text-sm md:text-base leading-relaxed font-light">
               We don't just export rice; we export a heritage of patience, expertise, and the deep-seated belief that nature's finest gifts deserve the utmost respect throughout their journey from soil to soul.
@@ -174,7 +174,7 @@ export default function AboutPage() {
               <span className="text-xs uppercase tracking-[0.3em] text-[#a67c1c] font-semibold transition-all duration-300 group-hover:tracking-[0.38em]">Our Vision</span>
               <h3 className="mt-3 font-serif-display text-3xl text-[#2c3f16] transition-transform duration-500 group-hover:translate-x-1">To be the most trusted name in premium rice exports worldwide.</h3>
               <p className="mt-4 text-sm md:text-base leading-relaxed font-light text-[#48624a] transition-colors duration-300 group-hover:text-[#2f4632]">
-                We envision a future where NeemSai Global is recognized for uncompromising quality, responsible sourcing, and a lasting connection between India’s farmlands and kitchens across the world.
+                We envision a future where Root & Rise is recognized for uncompromising quality, responsible sourcing, and a lasting connection between India’s farmlands and kitchens across the world.
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -455,7 +455,7 @@ export default function AboutPage() {
             <div className="h-[1.5px] w-20 bg-[#a67c1c]/60" />
             
             <p className="text-[#48624a] text-sm md:text-base leading-relaxed font-light">
-              At NeemSai Global, we believe that the journey from paddy to plate requires absolute technical precision. Our processing hubs are equipped with advanced milling, sortex-cleaning, and multi-stage grading machines, ensuring that every grain of rice meets stringent international food safety standards.
+              At Root & Rise, we believe that the journey from paddy to plate requires absolute technical precision. Our processing hubs are equipped with advanced milling, sortex-cleaning, and multi-stage grading machines, ensuring that every grain of rice meets stringent international food safety standards.
             </p>
             <p className="text-[#48624a] text-sm md:text-base leading-relaxed font-light">
               Designed to handle high-capacity export demands, our infrastructure is engineered to preserve grain integrity and hygiene at scale. From automated temperature-regulated storage systems to computer-controlled color sorters, we invest in processing excellence at every step.
@@ -483,7 +483,7 @@ export default function AboutPage() {
               <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-[#b7c6ad]/30 shadow-2xl relative z-10 bg-[#f7f3ec]">
                 <Image
                   src="/images/about-sourcing-3.png"
-                  alt="State of the art automated grain processing and sorting machines at NeemSai Global"
+                  alt="State of the art automated grain processing and sorting machines at Root & Rise"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -666,7 +666,7 @@ export default function AboutPage() {
               <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-[#b7c6ad]/30 shadow-2xl relative bg-[#f7f3ec] z-10">
                 <Image
                   src="/images/Cargo.jpeg"
-                  alt="Export logistics and container loading at NeemSai Global"
+                  alt="Export logistics and container loading at Root & Rise"
                   fill
                   className="object-cover"
                 />
@@ -771,7 +771,7 @@ export default function AboutPage() {
                 fadeOut
                 fadeOutColor="#f3f8ef"
                 scaleOnHover
-                ariaLabel="NeemSai Global certifications"
+                ariaLabel="Root & Rise certifications"
               />
             </div>
           </div>

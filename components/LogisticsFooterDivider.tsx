@@ -91,7 +91,7 @@ export default function LogisticsFooterDivider() {
           <line x1="0" y1="129" x2="1200" y2="129" />
         </g>
 
-        {/* NeemSai Global Logistics Cargo Truck 1 (Animated - Premium Gold Cab) */}
+        {/* Logistics Cargo Truck 1 (Animated - Premium Gold Cab) */}
         <g className="animate-truck-1">
           {/* Wheels with silver hubcaps */}
           <circle cx="18" cy="30" r="5.5" fill="#1c1c1e" />
@@ -103,9 +103,6 @@ export default function LogisticsFooterDivider() {
           {/* Trailer Body */}
           <rect x="0" y="1" width="80" height="27" fill="#ffffff" rx="1.5" />
           <rect x="2" y="3" width="76" height="23" fill="#fcfbf9" rx="1" />
-          {/* Brand Lettering on Truck 1 */}
-          <text x="8" y="17" fill="#2c3f16" fontSize="7.5" fontWeight="bold" fontFamily="serif" letterSpacing="0.2">NeemSai</text>
-          <text x="46" y="17" fill="#a67c1c" fontSize="5.5" fontWeight="black" letterSpacing="0.5">GLOBAL</text>
           <path d="M71,9 C67,10 66,15 66,15 S71,14 71,9" fill="#2c3f16" />
           {/* Cab in pop Gold color (#a67c1c) */}
           <path d="M80,8 L95,8 C98,8 101,11 101,15 L101,28 L80,28 Z" fill="#a67c1c" />
@@ -115,7 +112,7 @@ export default function LogisticsFooterDivider() {
           <circle cx="100" cy="24" r="1.5" fill="#ffe066" />
         </g>
 
-        {/* NeemSai Global Logistics Cargo Truck 2 (Animated - Brand Green Cab) */}
+        {/* Logistics Cargo Truck 2 (Animated - Brand Green Cab) */}
         <g className="animate-truck-2">
           {/* Wheels with silver hubcaps */}
           <circle cx="18" cy="30" r="5.5" fill="#1c1c1e" />
@@ -127,9 +124,6 @@ export default function LogisticsFooterDivider() {
           {/* Trailer Body */}
           <rect x="0" y="1" width="80" height="27" fill="#ffffff" rx="1.5" />
           <rect x="2" y="3" width="76" height="23" fill="#fcfbf9" rx="1" />
-          {/* Brand Lettering on Truck 2 */}
-          <text x="8" y="17" fill="#2c3f16" fontSize="7.5" fontWeight="bold" fontFamily="serif" letterSpacing="0.2">NeemSai</text>
-          <text x="46" y="17" fill="#a67c1c" fontSize="5.5" fontWeight="black" letterSpacing="0.5">GLOBAL</text>
           <path d="M71,9 C67,10 66,15 66,15 S71,14 71,9" fill="#2c3f16" />
           {/* Cab in brand green color (#2c3f16) */}
           <path d="M80,8 L95,8 C98,8 101,11 101,15 L101,28 L80,28 Z" fill="#2c3f16" />

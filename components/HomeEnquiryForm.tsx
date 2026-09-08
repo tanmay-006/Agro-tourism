@@ -21,7 +21,7 @@ export default function HomeEnquiryForm() {
     const emailSubject = `Website Enquiry: ${form.subject} - ${form.name}`;
     const emailBody = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=neemsaiglobal@gmail.com&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@rootandrise.co&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     setTimeout(() => {
       window.open(gmailUrl, "_blank");
@@ -55,13 +55,13 @@ export default function HomeEnquiryForm() {
               <div>
                 <h3 className="font-serif-display text-3xl mb-2 text-[#fcf5e5]">Inquiry Prepared!</h3>
                 <p className="text-[#98b5a3] text-sm leading-relaxed">
-                  We have prepared your enquiry draft to <strong>neemsaiglobal@gmail.com</strong>. If your browser didn't open the tab, use one of the options below to send:
+                  We have prepared your enquiry draft to <strong>hello@rootandrise.co</strong>. If your browser didn't open the tab, use one of the options below to send:
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=neemsaiglobal@gmail.com&su=${encodeURIComponent(`Website Enquiry: ${form.subject} - ${form.name}`)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`)}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=hello@rootandrise.co&su=${encodeURIComponent(`Website Enquiry: ${form.subject} - ${form.name}`)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 bg-[#839705] hover:bg-[#708004] text-white text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition duration-300 shadow-md cursor-pointer"
@@ -70,7 +70,7 @@ export default function HomeEnquiryForm() {
                 </a>
 
                 <a
-                  href={`mailto:neemsaiglobal@gmail.com?subject=${encodeURIComponent(`Website Enquiry: ${form.subject} - ${form.name}`)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`)}`}
+                  href={`mailto:hello@rootandrise.co?subject=${encodeURIComponent(`Website Enquiry: ${form.subject} - ${form.name}`)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`)}`}
                   className="px-6 py-3 bg-[#2c3f16] hover:bg-[#1d2a0f] text-[#fcf5e5] text-center rounded-xl text-xs font-semibold uppercase tracking-wider transition duration-300 shadow-md border border-white/15 cursor-pointer"
                 >
                   💻 Open Mail App

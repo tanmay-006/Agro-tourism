@@ -54,7 +54,7 @@ The international rice trade is undergoing a major paradigm shift. In 2024, expo
 With shifting weather systems affecting regional crop outputs, buyers are turning towards established agricultural corridors in India that offer consistent supply volumes. Traceability and food security certification are now standard expectations for European and Middle Eastern import desks.
 
 ## Ocean Freight and Logistics Management
-Port congestion and shipping lane alterations require exporters to run highly agile logistics. By leveraging direct transport partnerships and advanced custom clearings, NeemSai Global guarantees swift delivery schedules across major global corridors.
+Port congestion and shipping lane alterations require exporters to run highly agile logistics. By leveraging direct transport partnerships and advanced custom clearings, Root & Rise guarantees swift delivery schedules across major global corridors.
     `,
   },
   {
@@ -78,13 +78,13 @@ A robust soil ecosystem naturally builds pest resistance in crops, allowing us t
   },
   {
     slug: "science-of-rice-aging-aroma-length",
-    title: "The Science of Aging: Why NeemSai Basmati Wins on Aroma and Length",
+    title: "The Science of Aging: Why Basmati Rice Wins on Aroma and Length",
     category: "Global Logistics",
     displayCategory: "CULINARY HERITAGE",
     excerpt: "Exploring the traditional and scientific methods of aging rice to achieve the signature aroma and elongated grains prized by chefs.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBnLrGjM5FoV1Vu0xIGMiJ5WrP2diN0tb0_DFSI_mJ2tMN8PQM6XWgnAh6XwWAi7uhvyfC4VSo4kFrAokJLk_WNPxTmnYWwerWrF7eMymeX0ap-r44eCG5u4xuGCkxs3prLT5_HtNoUDodM4BQaiIo8S9G0WKWOkdMf1e0PsGhUx2cpyKVy6ECJa59V4Sm87fgcEL7hndpMpFIKfMGTlre2nFepUF8ngxF5_BOQiMgawicssYqdcUMtVt3fLxuh5nGzWOxhMttOy5I",
     content: `
-# The Science of Aging: Why NeemSai Basmati Wins on Aroma and Length
+# The Science of Aging: Why Basmati Rice Wins on Aroma and Length
 
 Aging rice is a molecular transformation. Unlike typical grains which are milled immediately post-harvest, premium Basmati requires a long curing period to develop its legendary flavor.
 
@@ -105,7 +105,7 @@ Dehydration during aging strengthens the rice cell walls. When boiled, the cell 
     content: `
 # Exporting Excellence: Understanding International Quality Standards
 
-Cross-border agricultural trade requires absolute alignment on safety and quality standards. NeemSai Global ensures compliance at every stage of the procurement pipeline.
+Cross-border agricultural trade requires absolute alignment on safety and quality standards. Root & Rise ensures compliance at every stage of the procurement pipeline.
 
 ## Sourcing and Certification Guidelines
 From ISO 22000 and HACCP to FSSAI and APEDA, our milling plants operate under top-tier sanitation protocols. Every export batch undergoes rigid testing for moisture levels, broken percentage, and zero foreign matter content.
@@ -138,7 +138,7 @@ Layering slow-cooked spices with parboiled Basmati, sealed under a wheat dough c
     title: "Sustainable Packaging Solutions: Reducing Carbon Footprint",
     category: "Sustainability",
     displayCategory: "SUSTAINABILITY",
-    excerpt: "How NeemSai Global is leading the way in eco-friendly packaging to ensure a greener future for global agricultural exports.",
+    excerpt: "How Root & Rise is leading the way in eco-friendly packaging to ensure a greener future for global agricultural exports.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB4DbQawKHT3y8_xIW_0lB2Qx-R19DbEtk4qmvPJgLkGYOi29aOq3wU1toV-7yFFerWzEkuMw4uLnDDyn7ha7jqdqKRdXoSYArKgV88HYj6o-IHtCBjVTE7l0z9efNj_3sRBB83YjJGEtilXSyN4d0RTDwg3NYUrKwCGIJTjgpmfHH0vefvHNia_GHQfUhpBtCPnxjE21f7Rgl2gMXf7rdnTUwxXsviy91Zk90sIvZVo0qsWrso99ldtNYQ2uPUt_VsQDI-OXH_Blw",
     content: `
 # Sustainable Packaging Solutions: Reducing Carbon Footprint

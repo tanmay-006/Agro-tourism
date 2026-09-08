@@ -1,6 +1,6 @@
 export const testimonials = [
   {
-    quote: "NeemSai Global has become a reliable sourcing partner for our Mumbai distribution network. The grain quality and communication are consistently excellent.",
+    quote: "Root & Rise has become a reliable sourcing partner for our Mumbai distribution network. The grain quality and communication are consistently excellent.",
     name: "Aarav Mehta",
     role: "Supply Chain Lead, Mumbai",
     stars: 5,
@@ -14,7 +14,7 @@ export const testimonials = [
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120",
   },
   {
-    quote: "Our partnership with NeemSai Global has transformed our supply chain. Their regular deliveries keep our production planning smooth and predictable.",
+    quote: "Our partnership with Root & Rise has transformed our supply chain. Their regular deliveries keep our production planning smooth and predictable.",
     name: "Rohan Kulkarni",
     role: "Procurement Director, Pune",
     stars: 5,
@@ -28,7 +28,7 @@ export const testimonials = [
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120",
   },
   {
-    quote: "NeemSai Global has been a cornerstone of our agricultural importing business. Quality is consistent in every shipment we receive in Chennai.",
+    quote: "Root & Rise has been a cornerstone of our agricultural importing business. Quality is consistent in every shipment we receive in Chennai.",
     name: "Vikram Singh",
     role: "Wholesale Importer, Chennai",
     stars: 5,

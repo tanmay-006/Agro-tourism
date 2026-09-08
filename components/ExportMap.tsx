@@ -291,7 +291,7 @@ export default function ExportMap() {
         <div className="mt-3 pt-3 border-t border-[#e2dbc9]/40 flex gap-4 text-[10px] text-[#6b7f6d] font-semibold">
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-[#ffca28] animate-pulse" />
-            <span>Gold Hotspots: NeemSai Setup Locations</span>
+            <span>Gold Hotspots: Root & Rise Locations</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-[#00e676] animate-pulse" />

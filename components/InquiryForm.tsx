@@ -23,7 +23,7 @@ export default function InquiryForm({ type = "full" }: { type?: FormType }) {
     const emailSubject = `Inquiry: ${form.product} - ${form.name}`;
     const emailBody = `Name: ${form.name}\nCompany: ${form.company || "N/A"}\nEmail: ${form.email || "N/A"}\nProduct: ${form.product}\nVolume: ${form.volume}\n\nMessage:\n${form.message || "N/A"}`;
     
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=neemsaiglobal@gmail.com&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@rootandrise.co&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
     // Automatically try opening Gmail in a new tab
     window.open(gmailUrl, "_blank");
@@ -34,8 +34,8 @@ export default function InquiryForm({ type = "full" }: { type?: FormType }) {
     const emailSubject = `Inquiry: ${form.product} - ${form.name}`;
     const emailBody = `Name: ${form.name}\nCompany: ${form.company || "N/A"}\nEmail: ${form.email || "N/A"}\nProduct: ${form.product}\nVolume: ${form.volume}\n\nMessage:\n${form.message || "N/A"}`;
     
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=neemsaiglobal@gmail.com&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    const mailtoUrl = `mailto:neemsaiglobal@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@rootandrise.co&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoUrl = `mailto:hello@rootandrise.co?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     const handleCopy = () => {
       navigator.clipboard.writeText(emailBody);
@@ -59,7 +59,7 @@ export default function InquiryForm({ type = "full" }: { type?: FormType }) {
         <div className="text-center">
           <h3 className="font-serif-display text-2xl mb-2 text-[#2c3f16]">Inquiry Prepared!</h3>
           <p className="text-xs text-[#48624a] leading-relaxed">
-            Choose how you would like to send your inquiry to <strong>neemsaiglobal@gmail.com</strong>:
+            Choose how you would like to send your inquiry to <strong>hello@rootandrise.co</strong>:
           </p>
         </div>
 

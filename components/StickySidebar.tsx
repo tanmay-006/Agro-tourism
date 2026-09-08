@@ -21,10 +21,10 @@ export default function StickySidebar() {
 
       {/* Mail Link */}
       <Link
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=neemsaiglobal@gmail.com"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@rootandrise.co"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Email NeemSai Global via Gmail"
+        aria-label="Email Root & Rise via Gmail"
         className="text-[#cec7b7] hover:text-[#fcf5e5] hover:scale-125 transition-transform duration-300 cursor-pointer"
       >
         <Mail className="h-6 w-6 stroke-[2]" />
@@ -33,7 +33,7 @@ export default function StickySidebar() {
       {/* Call Link */}
       <Link
         href="tel:+919833613591"
-        aria-label="Call NeemSai Global"
+        aria-label="Call Root & Rise"
         className="text-[#cec7b7] hover:text-[#fcf5e5] hover:scale-125 transition-transform duration-300 cursor-pointer"
       >
         <Phone className="h-6 w-6 stroke-[2]" />

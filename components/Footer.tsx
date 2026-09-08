@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { MessageCircle, Send, Share2 } from "lucide-react";
 import LogisticsFooterDivider from "./LogisticsFooterDivider";
 
@@ -35,13 +34,6 @@ export default function Footer() {
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2 md:px-10 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3">
-            <Image
-              src="/images/logo.png"
-              alt="Root & Rise logo"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain brightness-0 invert transition-transform hover:scale-105 duration-300"
-            />
             <h3 className="font-serif-display text-3xl font-bold tracking-tight">Root & Rise</h3>
           </div>
           <p className="mt-3 text-base text-[#d8d2c4] max-w-md leading-relaxed">

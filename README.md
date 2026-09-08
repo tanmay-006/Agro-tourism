@@ -1,6 +1,6 @@
-# NeemSai Global Website
+# Root & Rise Website
 
-Production-ready Next.js App Router website for NeemSai Global, built with Tailwind CSS and reusable data-driven components.
+Production-ready Next.js App Router website for Root & Rise, built with Tailwind CSS and reusable data-driven components.
 
 ## Run locally
 

@@ -39,7 +39,7 @@ export const products: Product[] = [
     name: "1121 Basmati Rice",
     category: "Basmati Rice",
     tagline: "Renowned globally for its extraordinary grain length and distinct fragrance.",
-    description: "NeemSai Global delivers carefully milled 1121 Basmati Rice with traceable sourcing from the Himalayan foothills, strict lab controls, and reliable international shipping.",
+    description: "Root & Rise delivers carefully milled 1121 Basmati Rice with traceable sourcing from the Himalayan foothills, strict lab controls, and reliable international shipping.",
     shortDescription: "Renowned globally for its extraordinary grain length and distinct fragrance.",
     heroImage: "/images/1121.png",
     badges: ["POPULAR", "Aromatic Profile"],

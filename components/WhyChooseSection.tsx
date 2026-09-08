@@ -80,7 +80,7 @@ export default function WhyChooseSection() {
           containerClassName="my-0 text-center mx-auto"
           textClassName="font-serif-display text-4xl md:text-5xl text-[#172e13] font-bold"
         >
-          Why Choose NeemSai Global?
+          Why Choose Root & Rise?
         </ScrollFloat>
         <div className="mt-4 w-24 h-[2px] bg-[#2c3f16] mx-auto"></div>
       </div>
