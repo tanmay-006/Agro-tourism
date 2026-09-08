@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Activity, ArrowRight, BarChart3, CloudSun, Database, Droplets, Gauge, Leaf, Radio, Smartphone, Sprout, Wifi } from "lucide-react";
+import { Activity, ArrowRight, BarChart3, CloudSun, Database, Droplets, Gauge, Leaf, Smartphone, Sprout, Wifi } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 
 const signals = [

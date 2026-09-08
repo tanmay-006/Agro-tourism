@@ -77,7 +77,7 @@ The project avoids treating sustainability as a marketing badge. Future versions
     content: `
 # A simple technology stack for a complex place
 
-The Root & Rise demo uses a responsive Next.js interface to bring together stays, experiences, local produce, and a contact flow.
+The Root & Rise demo uses a responsive Next.js interface to bring together stays, experiences, local produce, and a guided booking flow.
 
 ## Future integrations
 IoT sensors could share soil and weather signals, a cloud service could manage host calendars, and recommendation tools could match guests with activities. Each integration would need consent, secure data handling, and a low-bandwidth option.
