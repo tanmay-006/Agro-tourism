@@ -63,12 +63,12 @@ const benefits = [
 ];
 
 const experiences = [
-  { title: "Harvest & learn", description: "Follow the crop from soil to basket with a farmer-led morning in the fields.", duration: "2 hours", image: "/images/farm.jpeg", icon: Sprout },
-  { title: "Kitchen to table", description: "Pick seasonal ingredients, then turn them into a generous regional lunch.", duration: "3 hours", image: "/images/about-sourcing-4.jpg", icon: Utensils },
-  { title: "Golden hour trail", description: "Walk through the paddies as the light changes and hear the stories of this place.", duration: "90 minutes", image: "/images/grain.jpeg", icon: Camera },
-  { title: "The seed library", description: "Discover native grains, save seeds, and learn why crop diversity matters.", duration: "75 minutes", image: "/images/about-sourcing-1.jpg", icon: Leaf },
-  { title: "Farm friends", description: "A gentle, joyful visit with the animals and the people who care for them.", duration: "1.5 hours", image: "/images/about-sourcing-2.png", icon: Tractor },
-  { title: "Slow living workshop", description: "Make something useful with local materials and take a little countryside home.", duration: "2 hours", image: "/images/about-sourcing-3.png", icon: Lightbulb },
+  { slug: "harvest-and-learn", title: "Harvest & learn", description: "Follow the crop from soil to basket with a farmer-led morning in the fields.", duration: "2 hours", image: "/images/farm.jpeg", icon: Sprout },
+  { slug: "kitchen-to-table", title: "Kitchen to table", description: "Pick seasonal ingredients, then turn them into a generous regional lunch.", duration: "3 hours", image: "/images/about-sourcing-4.jpg", icon: Utensils },
+  { slug: "golden-hour-trail", title: "Golden hour trail", description: "Walk through the paddies as the light changes and hear the stories of this place.", duration: "90 minutes", image: "/images/grain.jpeg", icon: Camera },
+  { slug: "seed-library", title: "The seed library", description: "Discover native grains, save seeds, and learn why crop diversity matters.", duration: "75 minutes", image: "/images/about-sourcing-1.jpg", icon: Leaf },
+  { slug: "farm-friends", title: "Farm friends", description: "A gentle, joyful visit with the animals and the people who care for them.", duration: "1.5 hours", image: "/images/about-sourcing-2.png", icon: Tractor },
+  { slug: "slow-living-workshop", title: "Slow living workshop", description: "Make something useful with local materials and take a little countryside home.", duration: "2 hours", image: "/images/about-sourcing-3.png", icon: Lightbulb },
 ];
 
 const stays = [
@@ -121,6 +121,8 @@ function SectionIntro({ eyebrow, title, description, dark = false }: { eyebrow: 
 
 export default function Home() {
   const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [selectedStay, setSelectedStay] = useState<(typeof stays)[number] | null>(null);
   const [searchMessage, setSearchMessage] = useState("");
 
   function searchStays(event: FormEvent<HTMLFormElement>) {
@@ -194,7 +196,7 @@ export default function Home() {
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-3"><h3 className="font-serif-display text-2xl">{experience.title}</h3><span className="shrink-0 text-xs font-semibold text-[#806018]">{experience.duration}</span></div>
                   <p className="mt-3 min-h-14 text-sm leading-6 text-[#53604d]">{experience.description}</p>
-                  <button className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#20351b] hover:text-[#a67c1c]">Explore experience <ChevronRight className="h-4 w-4" /></button>
+                  <Link href={`/products/${experience.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#20351b] hover:text-[#a67c1c]">Explore experience <ChevronRight className="h-4 w-4" /></Link>
                 </div>
               </article>
             ))}
@@ -224,24 +226,43 @@ export default function Home() {
                   <Image src={stay.image} alt={stay.name} fill className="object-cover" />
                   <span className="absolute right-4 top-4 rounded-full bg-[#f7f3ec]/95 px-3 py-1 text-xs font-bold">★ {stay.rating}</span>
                 </div>
-                <div className="p-6"><p className="text-xs font-bold uppercase tracking-wider text-[#a67c1c]">{stay.location}</p><h3 className="mt-2 font-serif-display text-2xl">{stay.name}</h3><p className="mt-2 text-sm text-[#53604d]">Hosted by {stay.host}</p><div className="mt-6 flex items-end justify-between border-t border-[#e8e1d5] pt-4"><div><strong className="text-lg">{stay.price}</strong><p className="text-xs text-[#53604d]">{stay.detail}</p></div><button className="inline-flex items-center gap-1 text-sm font-bold text-[#20351b] hover:text-[#a67c1c]">View stay <ArrowRight className="h-3.5 w-3.5" /></button></div></div>
+                <div className="p-6"><p className="text-xs font-bold uppercase tracking-wider text-[#a67c1c]">{stay.location}</p><h3 className="mt-2 font-serif-display text-2xl">{stay.name}</h3><p className="mt-2 text-sm text-[#53604d]">Hosted by {stay.host}</p><div className="mt-6 flex items-end justify-between border-t border-[#e8e1d5] pt-4"><div><strong className="text-lg">{stay.price}</strong><p className="text-xs text-[#53604d]">{stay.detail}</p></div><button type="button" onClick={() => setSelectedStay(stay)} className="inline-flex items-center gap-1 text-sm font-bold text-[#20351b] hover:text-[#a67c1c]">View stay <ArrowRight className="h-3.5 w-3.5" /></button></div></div>
               </article>
             ))}
           </div>
+          {selectedStay && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#142313]/70 p-6" role="dialog" aria-modal="true" aria-labelledby="stay-dialog-title">
+              <div className="relative grid w-full max-w-2xl overflow-hidden rounded-3xl bg-[#f7f3ec] shadow-2xl md:grid-cols-2">
+                <Image src={selectedStay.image} alt={selectedStay.name} width={600} height={500} className="h-64 w-full object-cover md:h-full" />
+                <div className="p-7">
+                  <button type="button" onClick={() => setSelectedStay(null)} className="absolute right-4 top-4 rounded-full bg-[#f7f3ec]/90 px-3 py-1 text-xl leading-none text-[#20351b]" aria-label="Close stay details">×</button>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#a67c1c]">Demo stay details</p>
+                  <h2 id="stay-dialog-title" className="mt-3 font-serif-display text-3xl text-[#20351b]">{selectedStay.name}</h2>
+                  <p className="mt-3 text-sm leading-6 text-[#53604d]">A welcoming mock listing for visitors who want to experience farm life, local food, and a slower connection to the land.</p>
+                  <div className="mt-5 space-y-2 text-sm text-[#53604d]"><p><strong>Host:</strong> {selectedStay.host}</p><p><strong>Location:</strong> {selectedStay.location}</p><p><strong>Stay:</strong> {selectedStay.detail}</p></div>
+                  <button type="button" onClick={() => setSelectedStay(null)} className="mt-7 rounded-full bg-[#20351b] px-5 py-3 text-sm font-semibold text-white">Close demo</button>
+                </div>
+              </div>
+            </div>
+          )}
           <p className="mt-5 text-xs text-[#53604d]"><span className="font-bold">Demo marketplace:</span> listings and availability are illustrative mock data for this project.</p>
         </div>
       </section>
 
       <section className="bg-[#f0e9da] px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><SectionIntro eyebrow="From our farms" title="Fresh things, fairly priced." description="A small demo shop for produce grown by partner farms. Buy direct, know the source, and keep more value with the grower." /><div className="flex items-center gap-2 rounded-full bg-[#f7f3ec] px-4 py-2 text-sm font-semibold text-[#20351b]"><ShoppingCart className="h-4 w-4" /> {cartCount} items in cart</div></div>
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><SectionIntro eyebrow="From our farms" title="Fresh things, fairly priced." description="A small demo shop for produce grown by partner farms. Buy direct, know the source, and keep more value with the grower." />          <button type="button" onClick={() => document.getElementById("demo-cart")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 rounded-full bg-[#f7f3ec] px-4 py-2 text-sm font-semibold text-[#20351b]"><ShoppingCart className="h-4 w-4" /> {cartCount} items in cart</button></div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {produce.map((item) => (
               <article key={item.name} className="overflow-hidden rounded-2xl bg-[#f7f3ec]">
                 <div className="relative h-48"><Image src={item.image} alt={item.name} fill className="object-cover" /></div>
-                <div className="p-5"><p className="text-xs text-[#53604d]">{item.origin}</p><h3 className="mt-2 font-serif-display text-xl">{item.name}</h3><div className="mt-5 flex items-center justify-between"><strong>{item.price}</strong><button onClick={() => setCartCount((count) => count + 1)} className="inline-flex items-center gap-1 rounded-full bg-[#20351b] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#34552b]"><Plus className="h-3.5 w-3.5" /> Add</button></div></div>
+                <div className="p-5"><p className="text-xs text-[#53604d]">{item.origin}</p><h3 className="mt-2 font-serif-display text-xl">{item.name}</h3><div className="mt-5 flex items-center justify-between"><strong>{item.price}</strong><button type="button" onClick={() => { setCartCount((count) => count + 1); setCartItems((items) => [...items, item.name]); }} className="inline-flex items-center gap-1 rounded-full bg-[#20351b] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#34552b]"><Plus className="h-3.5 w-3.5" /> Add</button></div></div>
               </article>
             ))}
+          </div>
+          <div id="demo-cart" className="mt-8 rounded-2xl border border-[#d7d0c0] bg-[#f7f3ec] p-5" aria-live="polite">
+            <div className="flex items-center justify-between"><h3 className="font-serif-display text-2xl text-[#20351b]">Demo cart</h3><span className="text-sm font-semibold text-[#397c62]">{cartCount} item{cartCount === 1 ? "" : "s"}</span></div>
+            {cartItems.length ? <p className="mt-3 text-sm text-[#53604d]">{cartItems.join(" · ")} added for the interface demonstration.</p> : <p className="mt-3 text-sm text-[#53604d]">Choose “Add” on a produce card to see the mock cart update.</p>}
           </div>
         </div>
       </section>
