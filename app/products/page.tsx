@@ -112,9 +112,9 @@ export default function ProductsPage() {
                   <h3 className="font-serif-display text-xl text-[#2c3f16]">{item.name}</h3>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#a67c1c]">{item.origin}</p>
                   <p className="mt-3 text-sm leading-relaxed text-[#48624a]">{item.description}</p>
-                  <Link href="/contact?interest=produce" className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2c3f16]">
-                    Ask about the pilot <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#2c3f16]">
+                    Demo catalogue item <ArrowRight className="h-4 w-4" />
+                  </span>
                 </div>
               </article>
             </ScrollReveal>
@@ -132,8 +132,8 @@ export default function ProductsPage() {
             This demo shows how bookings, learning, and local produce could sit in one approachable digital experience. Payments and inventory are intentionally mocked for the college project.
           </p>
         </div>
-        <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">
-          Plan a demo visit <ShoppingBasket className="h-4 w-4" />
+        <Link href="/#stays" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">
+          Explore demo stays <ShoppingBasket className="h-4 w-4" />
         </Link>
       </section>
     </div>

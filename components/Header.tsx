@@ -10,7 +10,6 @@ const links = [
   { href: "/#experiences", label: "Experiences" },
   { href: "/about", label: "Our Story" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -48,16 +47,6 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: Desktop CTA */}
-        <div className="hidden md:flex flex-1 justify-end">
-          <Link
-            href="/contact"
-            className="inline-flex rounded-full bg-[#2c3f16] px-4 py-2 font-serif-display text-sm font-semibold text-[#fcf5e5] transition hover:bg-[#2c3f16]"
-          >
-            Inquire Now
-          </Link>
-        </div>
-
         {/* Mobile Menu Button */}
         <button className="md:hidden ml-auto" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
@@ -83,13 +72,6 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            className="inline-flex justify-center rounded-full bg-[#2c3f16] px-4 py-2 font-serif-display text-base font-semibold text-[#fcf5e5] transition hover:bg-[#2c3f16]"
-            onClick={() => setOpen(false)}
-          >
-            Inquire Now
-          </Link>
         </div>
       )}
     </header>

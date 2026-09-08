@@ -32,8 +32,8 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
             <span className="inline-flex items-center gap-2 rounded-full bg-[#edf4e8] px-4 py-2"><CalendarDays className="h-4 w-4 text-[#a67c1c]" /> {experience.duration}</span>
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link href={`/contact?experience=${experience.slug}`} className="inline-flex items-center gap-2 rounded-full bg-[#2c3f16] px-6 py-3 font-semibold text-[#fcf5e5] transition hover:bg-[#34552b]">
-              Request a demo booking <ArrowRight className="h-4 w-4" />
+            <Link href="/#stays" className="inline-flex items-center gap-2 rounded-full bg-[#2c3f16] px-6 py-3 font-semibold text-[#fcf5e5] transition hover:bg-[#34552b]">
+              Explore demo stays <ArrowRight className="h-4 w-4" />
             </Link>
             <span className="text-sm font-semibold text-[#806018]">{experience.price} · indicative demo price</span>
           </div>
@@ -72,8 +72,8 @@ export default async function ExperienceDetailPage({ params }: { params: Promise
         <div className="rounded-2xl bg-[#20351b] p-8 text-[#f7f3ec]">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#e7bd67]">College-project note</p>
           <h2 className="mt-4 font-serif-display text-3xl">A realistic flow, safely mocked.</h2>
-          <p className="mt-3 leading-7 text-[#d8d2c4]">The booking button opens a demo contact form. No payment, inventory, or reservation is processed.</p>
-          <Link href="/contact" className="mt-6 inline-flex items-center gap-2 font-semibold text-[#e7bd67]">Open booking demo <ArrowRight className="h-4 w-4" /></Link>
+          <p className="mt-3 leading-7 text-[#d8d2c4]">The booking journey is represented with mock listings and simulated data. No payment, inventory, or reservation is processed.</p>
+          <Link href="/#stays" className="mt-6 inline-flex items-center gap-2 font-semibold text-[#e7bd67]">Open stay listings <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </div>

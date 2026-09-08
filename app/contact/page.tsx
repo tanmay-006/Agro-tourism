@@ -1,29 +1,23 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { CalendarDays, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import { CalendarDays, CheckCircle2, MapPin } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 
 const farmHubs = {
   alibaug: {
     name: "Alibaug demo farm",
     address: "Alibaug, Maharashtra · coastal fields and kitchen gardens",
-    phone: "+91 90000 00000",
-    email: "hello@rootandrise.demo",
     mapSrc: "https://www.google.com/maps?q=Alibaug%2C%20Maharashtra&output=embed",
   },
   nashik: {
     name: "Nashik demo farm",
     address: "Nashik, Maharashtra · orchard and seasonal produce",
-    phone: "+91 90000 00001",
-    email: "hello@rootandrise.demo",
     mapSrc: "https://www.google.com/maps?q=Nashik%2C%20Maharashtra&output=embed",
   },
   kolhapur: {
     name: "Kolhapur demo farm",
     address: "Kolhapur, Maharashtra · paddies and nature trails",
-    phone: "+91 90000 00002",
-    email: "hello@rootandrise.demo",
     mapSrc: "https://www.google.com/maps?q=Kolhapur%2C%20Maharashtra&output=embed",
   },
 };
@@ -44,7 +38,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
       <SectionHeading
         title="Plan a farm visit"
-        subtitle="Use this booking/contact demo to imagine how Root & Rise could connect guests with local hosts. No payment or real reservation is processed."
+        subtitle="Use this booking demo to imagine how Root & Rise could connect guests with local hosts. No payment or real reservation is processed."
       />
 
       <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#d7d0c0] bg-white/60 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#806018]">
@@ -60,8 +54,6 @@ export default function ContactPage() {
               <h3 className="font-serif-display text-xl">{activeHub.name}</h3>
               <div className="mt-4 space-y-3 text-sm text-[#d8d2c4]">
                 <p className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#e7bd67]" />{activeHub.address}</p>
-                <p className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0 text-[#e7bd67]" /><a href={`tel:${activeHub.phone.replace(/\s/g, "")}`}>{activeHub.phone}</a></p>
-                <p className="flex items-center gap-3"><Mail className="h-4 w-4 shrink-0 text-[#e7bd67]" /><a href={`mailto:${activeHub.email}`}>{activeHub.email}</a></p>
               </div>
             </div>
             <div className="mt-5 grid grid-cols-3 gap-2">
@@ -96,13 +88,11 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-[#48624a]">Tell us what kind of farm day you are imagining.</p>
               <form onSubmit={submitBooking} className="mt-6 space-y-3">
                 <label className="block text-sm font-medium text-[#2c3f16]">Name<input required name="name" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
-                <label className="block text-sm font-medium text-[#2c3f16]">Email<input required type="email" name="email" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <label className="block text-sm font-medium text-[#2c3f16]">Preferred date<input required type="date" name="date" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
                   <label className="block text-sm font-medium text-[#2c3f16]">Guests<select name="guests" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2"><option>2 guests</option><option>4 guests</option><option>6 guests</option></select></label>
                 </div>
                 <label className="block text-sm font-medium text-[#2c3f16]">Experience<select name="experience" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2">{experiences.map((experience) => <option key={experience}>{experience}</option>)}</select></label>
-                <label className="block text-sm font-medium text-[#2c3f16]">Note for the host<textarea name="message" rows={3} placeholder="Accessibility needs, interests, or questions" className="mt-1 w-full rounded-md border border-[#d7d0c0] px-3 py-2" /></label>
                 <button type="submit" className="w-full rounded-full bg-[#20351b] px-4 py-3 font-semibold text-[#f7f3ec] transition hover:bg-[#34552b]">Submit demo enquiry</button>
               </form>
             </>

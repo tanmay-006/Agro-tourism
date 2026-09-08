@@ -126,7 +126,7 @@ export default function AboutPage() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">
+          <Link href="/#technology" className="inline-flex items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">
             Try the booking demo <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

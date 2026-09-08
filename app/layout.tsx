@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import StickySidebar from "@/components/StickySidebar";
 import { Bodoni_Moda } from "next/font/google";
 
 const bodoniModa = Bodoni_Moda({
@@ -22,7 +21,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${bodoniModa.variable} h-full`}>
       <body className="min-h-full bg-[#f7f3ec] text-[#2c3f16]">
         <CustomCursor />
-        <StickySidebar />
         <Header />
         <main>{children}</main>
         <Footer />

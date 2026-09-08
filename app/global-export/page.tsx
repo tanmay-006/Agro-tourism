@@ -73,7 +73,7 @@ export default function GlobalExportPage() {
       <section className="bg-[#20351b] px-6 py-16 text-center text-[#f7f3ec] md:px-10 md:py-20">
         <Leaf className="mx-auto h-8 w-8 text-[#e7bd67]" />
         <h2 className="mx-auto mt-5 max-w-3xl font-serif-display text-4xl md:text-5xl">Technology should make the farm more connected, not less human.</h2>
-        <Link href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b]">Try the booking demo <ArrowRight className="h-4 w-4" /></Link>
+        <Link href="/#stays" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b]">Explore stay listings <ArrowRight className="h-4 w-4" /></Link>
       </section>
     </div>
   );

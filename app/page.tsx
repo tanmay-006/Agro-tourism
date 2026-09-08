@@ -344,7 +344,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[#20351b] px-6 py-20 text-[#f7f3ec] md:px-10 md:py-24">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-center"><div><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-[#e7bd67]"><CalendarDays className="h-4 w-4" /> Your next story starts here</p><h2 className="mt-4 max-w-2xl font-serif-display text-4xl md:text-6xl">Come curious. Leave connected.</h2><p className="mt-4 max-w-xl leading-7 text-[#d8d2c4]">Explore a farm stay, taste something fresh, or help us imagine a smarter future for rural travel.</p></div><Link href="/contact" className="inline-flex w-fit items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">Plan your visit <ArrowRight className="h-4 w-4" /></Link></div>
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-center"><div><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-[#e7bd67]"><CalendarDays className="h-4 w-4" /> Your next story starts here</p><h2 className="mt-4 max-w-2xl font-serif-display text-4xl md:text-6xl">Come curious. Leave connected.</h2><p className="mt-4 max-w-xl leading-7 text-[#d8d2c4]">Explore a farm stay, taste something fresh, or help us imagine a smarter future for rural travel.</p></div><Link href="#stays" className="inline-flex w-fit items-center gap-2 rounded-full bg-[#e7bd67] px-6 py-3 font-semibold text-[#20351b] transition hover:bg-[#f4d893]">Explore farm stays <ArrowRight className="h-4 w-4" /></Link></div>
       </section>
     </div>
   );
